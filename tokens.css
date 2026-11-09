@@ -1,0 +1,74 @@
+/*
+  Design tokens extraídos em ../../design/tokens.md (sessão s02, EV-001/EV-002).
+  Tema: apenas light (tema estudado a fundo). Valores batem com o monday.com
+  real pixel a pixel onde foram amostrados — ver tokens.md para evidência.
+
+  Fonte: Figtree (mesma fonte real do monday, via Google Fonts — fonte aberta,
+  licença OFL, não é asset proprietário do monday). Ícones: NÃO são os do
+  monday (sprite proprietário) — ver icons.svg, silhuetas genéricas estilo
+  Feather/Lucide, desenhadas à mão para este preview (clean room).
+*/
+
+:root {
+  /* Cor */
+  --bg-canvas: rgb(246, 247, 251);
+  --bg-surface: rgb(255, 255, 255);
+  --text-primary: rgb(50, 51, 56);
+  --text-secondary: rgb(103, 104, 121);
+  --text-disabled: rgba(50, 51, 56, 0.38);
+  --border-default: rgb(208, 212, 228);
+  --border-strong: rgb(195, 198, 212);
+  --brand-teal: rgb(0, 127, 155);
+  --status-green: rgb(0, 200, 117);
+  --status-blue-mid: rgb(0, 134, 192);
+  --status-cyan: rgb(102, 204, 255);
+  --status-indigo: rgb(85, 89, 223);
+  --status-red: rgb(226, 68, 92); /* só confirmado em dark (EV-002); usado aqui por ser o único vermelho documentado */
+  --status-lime: rgb(163, 211, 42); /* "Feito" em Atividades — rótulo interno do monday "lime-green" (EV-014) */
+  --status-amber: rgb(251, 160, 35); /* "Em andamento" em Projeto (EV-015), aproximado por leitura visual */
+  --status-slate-blue: rgb(91, 127, 189); /* "Alta" em Prioridade de Projeto (EV-015) — azul acinzentado, mais escuro que status-blue-mid */
+  --status-sky-pale: rgb(169, 212, 230); /* "Baixa" em Prioridade de Projeto (EV-015) — azul claro pastel */
+  --accent-teal-pale: rgb(209, 236, 239);
+  --bg-panel-translucent: rgba(255, 255, 255, 0.97);
+
+  /* Tipografia */
+  --font-base: "Figtree", Roboto, "Noto Sans Hebrew", "Noto Kufi Arabic", "Noto Sans JP", sans-serif;
+  --text-sm-size: 14px;
+  --text-sm-lh: 20px;
+  --text-input-size: 15px;
+  --text-input-lh: 36px;
+  --text-xs-size: 11px;
+  --text-xs-lh: 16px;
+  --text-sm-loose-size: 14px;
+  --text-sm-loose-lh: 24px;
+  --text-lg-size: 18px;
+  --text-lg-lh: 27px;
+  --text-xs-bold-size: 10px;
+  --text-xs-bold-lh: 16px;
+
+  /* Raio */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-md-alt: 10px;
+  --radius-sm-alt: 6px;
+  --radius-round: 50%;
+  --radius-pill: 100px;
+
+  /* Espaçamento */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 6px;
+  --space-4: 13px;
+  --space-5: 16px;
+  --space-6: 24px;
+
+  /* Sombra */
+  --shadow-sticky-edge: rgb(255, 255, 255) 1px 8px 0px -1px;
+  --shadow-popover: rgba(51, 51, 51, 0.16) 0px 1px 8px 1px;
+  --shadow-sticky-bottom: rgba(0, 0, 0, 0.1) 0px 8px 8px -8px;
+  --shadow-modal: rgba(0, 0, 0, 0.2) 0px 6px 20px 0px;
+
+  /* Layout */
+  --sidebar-width: 220px;
+  --topbar-height: 52px;
+}

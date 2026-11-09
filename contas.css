@@ -1,0 +1,387 @@
+/* Portal PRX — Contas (S-003)
+   Tabelas densas com status pills, progress bars, cards
+   Paleta: Oliva, Sálvia, Verde, Nevoa
+*/
+
+/* ═══════════════════════════════════════════════════════════ */
+/* VIEW TABS */
+/* ═══════════════════════════════════════════════════════════ */
+
+.view-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  border-bottom: 2px solid var(--fio);
+  margin-bottom: var(--s4);
+  padding: 0;
+}
+
+.view-tabs .tab {
+  padding: var(--s2) 0;
+  font-size: var(--s0-size);
+  font-weight: 600;
+  color: var(--texto-2);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.view-tabs .tab:hover {
+  color: var(--oliva);
+}
+
+.view-tabs .tab.active {
+  color: var(--oliva);
+  border-bottom-color: var(--oliva);
+  font-weight: 700;
+}
+
+.view-tabs .tab-add {
+  color: var(--texto-2);
+  display: flex;
+  align-items: center;
+  padding: var(--s2) 0;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TOOLBAR */
+/* ═══════════════════════════════════════════════════════════ */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+  padding: var(--s2);
+  background: var(--creme-tint);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.toolbar .btn-primary {
+  background: var(--oliva);
+  color: var(--creme);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--s2) var(--s3);
+  font-size: var(--s0-size);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing);
+  font-family: var(--body);
+}
+
+.toolbar .btn-primary:hover {
+  background: var(--oliva-light);
+  box-shadow: var(--shadow-md);
+}
+
+.toolbar .btn-ghost {
+  background: var(--creme);
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  padding: var(--s2) var(--s3);
+  font-size: var(--s0-size);
+  color: var(--oliva);
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing);
+  font-family: var(--body);
+}
+
+.toolbar .btn-ghost:hover {
+  background: var(--creme-tint);
+  border-color: var(--oliva);
+}
+
+.toolbar .btn-icon {
+  background: var(--creme);
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-2);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing);
+}
+
+.toolbar .btn-icon:hover {
+  border-color: var(--oliva);
+  color: var(--oliva);
+}
+
+.toolbar .spacer {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TABLE STRUCTURE */
+/* ═══════════════════════════════════════════════════════════ */
+
+.board-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  background: var(--creme);
+  -webkit-overflow-scrolling: touch;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--s0-size);
+}
+
+.board-table.wide {
+  width: max-content;
+  min-width: 100%;
+}
+
+.board-table thead th {
+  background: var(--creme-tint);
+  color: var(--texto-2);
+  font-family: var(--mono);
+  font-size: var(--s0-size);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: var(--s2) var(--s3);
+  border-bottom: 2px solid var(--oliva);
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.board-table thead .th-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TABLE ROWS */
+/* ═══════════════════════════════════════════════════════════ */
+
+.board-table .item-row {
+  background: var(--creme);
+}
+
+.board-table .item-row td {
+  padding: var(--s2) var(--s3);
+  border-bottom: 1px solid var(--fio);
+  font-size: var(--s0-size);
+  vertical-align: middle;
+  color: var(--oliva);
+}
+
+.board-table .item-row:hover td {
+  background: var(--creme-tint);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* CELL CONTENT */
+/* ═══════════════════════════════════════════════════════════ */
+
+.cell-name {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  white-space: nowrap;
+}
+
+.cell-name .avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--nevoa);
+  color: var(--oliva);
+  font-family: var(--mono);
+}
+
+.cell-name .company-name {
+  font-weight: 600;
+  color: var(--oliva);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* STATUS PILLS */
+/* ═══════════════════════════════════════════════════════════ */
+
+.pill {
+  display: inline-block;
+  padding: var(--s1) var(--s2);
+  border-radius: var(--radius-pill);
+  font-size: var(--s0-size);
+  font-weight: 600;
+  white-space: nowrap;
+  font-family: var(--body);
+}
+
+/* Status: Lead vs Client */
+.pill.lead {
+  background: var(--creme-tint);
+  color: var(--texto-2);
+  border: 1px solid var(--fio);
+}
+
+.pill.client {
+  background: var(--salvia);
+  color: #fff;
+}
+
+.pill.inactive {
+  background: var(--nevoa);
+  color: var(--oliva);
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* PROGRESS BAR */
+/* ═══════════════════════════════════════════════════════════ */
+
+.progress-bar-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.progress-bar {
+  flex: 1;
+  min-width: 80px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--creme-tint);
+  overflow: hidden;
+  border: 1px solid var(--fio);
+}
+
+.progress-bar .fill {
+  height: 100%;
+  background: var(--salvia);
+  border-radius: 3px;
+}
+
+.progress-text {
+  font-size: var(--s0-size);
+  font-weight: 600;
+  color: var(--oliva);
+  min-width: 40px;
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* ICON SIZES */
+/* ═══════════════════════════════════════════════════════════ */
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: currentColor;
+}
+
+.icon-sm {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: currentColor;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* FOOTER ELEMENTS */
+/* ═══════════════════════════════════════════════════════════ */
+
+.board-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--texto-2);
+  font-size: var(--s0-size);
+  margin-top: var(--s3);
+  padding: var(--s2) var(--s3);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.board-footer:hover {
+  color: var(--oliva);
+}
+
+.empty-note {
+  margin-top: var(--s4);
+  font-size: var(--s0-size);
+  color: var(--texto-2);
+  background: var(--creme-tint);
+  border: 1px dashed var(--fio);
+  border-radius: var(--radius-md);
+  padding: var(--s3);
+  line-height: 1.6;
+}
+
+.empty-note code {
+  background: var(--creme);
+  padding: var(--s1) var(--s2);
+  border-radius: var(--radius-sm);
+  font-family: var(--mono);
+  color: var(--oliva);
+  border: 1px solid var(--fio);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* RESPONSIVE */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .view-tabs {
+    gap: var(--s2);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar .spacer {
+    display: none;
+  }
+
+  .board-table {
+    font-size: 11px;
+  }
+
+  .board-table thead th {
+    padding: var(--s1) var(--s2);
+  }
+
+  .board-table tbody td {
+    padding: var(--s1) var(--s2);
+  }
+
+  .cell-name {
+    gap: var(--s1);
+  }
+
+  .progress-bar {
+    min-width: 60px;
+  }
+}

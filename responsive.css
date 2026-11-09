@@ -1,0 +1,407 @@
+/* Portal PRX — Responsive Design
+   Mobile-first approach com 5 breakpoints
+   320px (mobile) → 640px (tablet) → 768px (medium) → 900px (desktop) → 1200px (large)
+*/
+
+/* ═══════════════════════════════════════════════════════════ */
+/* BASE MOBILE (320px+) */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Tudo já é mobile-first nos tokens e componentes */
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TABLET (640px+) */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 640px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn-group {
+    gap: var(--s2);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .toolbar {
+    flex-wrap: nowrap;
+  }
+
+  .toolbar-actions {
+    margin-left: auto;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* MEDIUM (768px+) — Tablet/Small Laptop */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+  :root {
+    --sidebar-width: 232px;
+    --topbar-height: 56px;
+  }
+
+  html, body {
+    font-size: var(--s1-size);
+  }
+
+  .section {
+    padding: var(--s4);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Tables on tablets can have scroll */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar-search {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .header-line {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .btn-group {
+    flex-wrap: nowrap;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* DESKTOP (900px+) — Standard Desktop */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 900px) {
+  :root {
+    --sidebar-width: 232px;
+    --topbar-height: 56px;
+  }
+
+  html, body {
+    font-size: var(--s1-size);
+  }
+
+  .app {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--topbar-height);
+    z-index: var(--z-fixed);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--topbar-height));
+    overflow-y: auto;
+    z-index: var(--z-sticky);
+  }
+
+  .main {
+    margin-left: var(--sidebar-width);
+    margin-top: var(--topbar-height);
+    flex: 1;
+    min-width: 0;
+    padding: var(--s4) var(--s5);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s4);
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section {
+    padding: var(--s4);
+    background: var(--creme);
+  }
+
+  .table-wrapper {
+    overflow-x: visible;
+  }
+
+  .table {
+    font-size: var(--s1-size);
+  }
+
+  .table-dense {
+    font-size: var(--s0-size);
+  }
+
+  /* Sidebar nav on desktop */
+  .sidebar .nav-item {
+    padding: var(--s2) var(--s3);
+    border-radius: var(--radius-md);
+    transition: all var(--duration-fast) var(--easing);
+  }
+
+  .sidebar .nav-item:hover {
+    background: var(--creme-tint);
+  }
+
+  .sidebar .nav-item.active {
+    background: var(--oliva);
+    color: var(--creme);
+  }
+
+  /* Header layout on desktop */
+  .header-line {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .header-title {
+    flex: 1;
+  }
+
+  .header-subtitle {
+    text-align: right;
+  }
+
+  .toolbar {
+    flex-wrap: nowrap;
+    gap: var(--s3);
+  }
+
+  .toolbar-search {
+    flex: 1;
+    min-width: 400px;
+  }
+
+  .toolbar-actions {
+    margin-left: auto;
+    flex-wrap: nowrap;
+  }
+
+  .btn-group {
+    gap: var(--s2);
+    flex-wrap: nowrap;
+  }
+
+  /* Avatar responsiveness */
+  .avatar-md {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .avatar-sm {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* LARGE DESKTOP (1200px+) */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 1200px) {
+  :root {
+    --sidebar-width: 240px;
+    --container-max: 1400px;
+  }
+
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .main {
+    padding: var(--s5) var(--s6);
+    max-width: var(--container-max);
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .table {
+    font-size: var(--s1-size);
+  }
+
+  .toolbar-search {
+    max-width: 500px;
+  }
+
+  .header-title {
+    font-size: var(--s5-size);
+  }
+
+  .section {
+    padding: var(--s4);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* TOUCH DEVICE ADJUSTMENTS */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets on mobile */
+  .btn {
+    min-height: 44px;
+    padding: var(--s2) var(--s3);
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    min-height: 44px;
+    padding: var(--s2) var(--s3);
+  }
+
+  .table tbody td {
+    padding: var(--s3) var(--s2);
+  }
+
+  /* Smooth scrolling for overflow */
+  .table-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Remove hover effects on touch devices */
+  .btn:hover,
+  .card:hover,
+  .item:hover {
+    box-shadow: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* PRINT STYLES */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media print {
+  .topbar,
+  .sidebar,
+  .toolbar {
+    display: none;
+  }
+
+  .main {
+    margin: 0;
+    padding: 0;
+  }
+
+  .table-wrapper {
+    overflow-x: visible;
+    page-break-inside: avoid;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* DARK MODE READY (future) */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-color-scheme: dark) {
+  /* Placeholder for dark mode
+     Implementar quando o design for aprovado
+  */
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* ACCESSIBILITY */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+  :root {
+    --oliva: #1a1d10;
+    --texto-2: #333;
+    --fio: rgba(0, 0, 0, 0.3);
+  }
+
+  .table thead th {
+    border-width: 2px;
+  }
+
+  .btn,
+  .card {
+    border-width: 2px;
+  }
+}
+
+/* Forced colors mode (Windows High Contrast) */
+@media (forced-colors: active) {
+  .card,
+  .btn,
+  .table {
+    border: 1px solid CanvasText;
+  }
+
+  .card:hover {
+    outline: 2px solid CanvasText;
+  }
+}

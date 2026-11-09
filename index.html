@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Portal PRX — Redesign Fase 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="design-tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="shell-prx.css"><style>
+  body {
+    font-family: var(--body);
+    background: var(--creme);
+    color: var(--oliva);
+    margin: 0;
+    padding: var(--s5) var(--s4);
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-family: var(--display);
+    font-size: var(--s5-size);
+    font-weight: 700;
+    color: var(--oliva);
+    margin: 0 0 var(--s1) 0;
+  }
+  .sub {
+    color: var(--texto-2);
+    font-size: var(--s1-size);
+    margin-bottom: var(--s4);
+    line-height: var(--s1-lh);
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s2);
+    margin-bottom: var(--s4);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    background: var(--creme-tint);
+    border: 1px solid var(--fio);
+    border-radius: var(--radius-md);
+    padding: var(--s2) var(--s3);
+    transition: all var(--duration-fast) var(--easing);
+  }
+  .row:hover {
+    background: var(--creme);
+    border-color: var(--oliva);
+  }
+  .row.pending {
+    opacity: 0.6;
+  }
+  .row a {
+    font-weight: 600;
+    color: var(--oliva);
+    text-decoration: none;
+  }
+  .row a:hover {
+    text-decoration: underline;
+  }
+  .row .status {
+    margin-left: auto;
+    font-size: var(--s0-size);
+    padding: var(--s1) var(--s2);
+    border-radius: var(--radius-pill);
+  }
+  .status.done {
+    background: var(--salvia);
+    color: #fff;
+  }
+  .status.todo {
+    background: var(--creme);
+    color: var(--texto-2);
+    border: 1px solid var(--fio);
+  }
+  .note {
+    margin-top: var(--s4);
+    font-size: var(--s0-size);
+    color: var(--texto-2);
+    background: var(--creme-tint);
+    border: 1px dashed var(--fio);
+    border-radius: var(--radius-md);
+    padding: var(--s3);
+    line-height: 1.6;
+  }
+  .note strong {
+    color: var(--oliva);
+  }
+  code {
+    font-family: var(--mono);
+    background: var(--creme);
+    padding: var(--s1) var(--s2);
+    border-radius: var(--radius-sm);
+    font-size: var(--s0-size);
+    color: var(--oliva);
+    border: 1px solid var(--fio);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Preview visual — clone do monday CRM</h1>
+  <p class="sub">Mockup estático (HTML+CSS, sem backend) a partir da base levantada em <code>re-monday/</code>. Dado fictício em todas as telas.</p>
+
+  <div class="list">
+    <div class="row"><a href="s-001-negociacoes.html">S-001 — Negociações</a><span class="status done">pronto</span></div>
+    <div class="row"><a href="s-002-contatos.html">S-002 — Contatos</a><span class="status done">pronto</span></div>
+    <div class="row"><a href="s-003-contas.html">S-003 — Contas</a><span class="status done">pronto</span></div>
+    <div class="row pending"><span>S-004 — Leads</span><span class="status todo">sem preview (board tem PII real, ver nota de manuseio de dados)</span></div>
+    <div class="row"><a href="s-005-projetos-de-clientes.html">S-005 — Projetos de clientes</a><span class="status done">pronto</span></div>
+    <div class="row"><a href="s-006-atividades.html">S-006 — Atividades</a><span class="status done">pronto</span></div>
+    <div class="row"><a href="s-007-painel-de-vendas.html">S-007 — Painel de vendas</a><span class="status done">pronto</span></div>
+  </div>
+
+  <div class="note">
+    <strong>O que isto é:</strong> um preview visual estático para bater o olho — não é o Portal PRX de verdade
+    (sem FastAPI, sem Jinja, sem banco, sem dado real), e os textos ainda são os do monday literal
+    (vocabulário "Oportunidade/Negociação", não "oportunidade" do Portal PRX) porque o objetivo agora é
+    validar fidelidade visual antes de decidir a adaptação de domínio. Construído com os tokens de
+    <code>design/tokens.md</code> e a anatomia de cada <code>screens/S-00x-*.md</code>. Ícones são genéricos
+    (desenhados à mão para este preview), não o sprite do monday — ver <code>clone/barriers.md</code>.
+    <br><br>
+    Para abrir: clique nos links acima (funciona direto via <code>file://</code>, sem precisar de servidor).
+    Também está servido em <code>http://localhost:8001/</code> enquanto o terminal da sessão ficar aberto.
+  </div>
+</div>
+</body>
+</html>

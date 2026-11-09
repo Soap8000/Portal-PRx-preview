@@ -1,0 +1,154 @@
+/* Portal PRX — Design Tokens
+   Paleta: Creme, Oliva, Sálvia, Nevoa, Verde (Guia de Marca PRX set/2026)
+   Tipografia: Fraunces (headings), Inter Tight (body), IBM Plex Mono (labels)
+   Baseado em prx.css consolidado, adaptado para clone estático
+*/
+
+:root {
+  /* ─── CORES (Paleta PRX) ─── */
+  --creme:       #F2F3DC;        /* Fundo principal, superfícies leves */
+  --creme-tint:  #F8F9EE;        /* Fundo secundário, realce suave */
+  --nevoa:       #C8CDB4;        /* Elemento neutro, desabilitado */
+  --salvia:      #8E9A6B;        /* Sucesso, ok, status positivo */
+  --oliva:       #3B4226;        /* Primária, texto principal */
+  --texto-2:     #656A52;        /* Texto secundário, rótulos */
+  --verde:       #C6DA2E;        /* Alerta, atenção, crítico */
+
+  /* Tons intermediários */
+  --oliva-light: #5c6842;        /* Hover states */
+  --fio:         rgba(59, 66, 38, 0.14);  /* Borda neutra */
+
+  /* ─── TIPOGRAFIA ─── */
+  --display:     "Fraunces", Georgia, serif;     /* Headings */
+  --body:        "Inter Tight", system-ui, -apple-system, sans-serif;  /* Body */
+  --mono:        "IBM Plex Mono", "Courier New", monospace;  /* Labels, code */
+
+  /* Tamanhos e alturas de linha */
+  --s0-size:     12px;
+  --s0-lh:       16px;
+  --s1-size:     14px;
+  --s1-lh:       20px;
+  --s2-size:     16px;
+  --s2-lh:       24px;
+  --s3-size:     18px;
+  --s3-lh:       27px;
+  --s4-size:     20px;
+  --s4-lh:       30px;
+  --s5-size:     24px;
+  --s5-lh:       36px;
+
+  /* ─── ESPAÇAMENTO ─── */
+  --s0:          2px;
+  --s1:          4px;
+  --s2:          8px;
+  --s3:          16px;
+  --s4:          24px;
+  --s5:          32px;
+  --s6:          48px;
+
+  /* ─── BORDER RADIUS ─── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-pill: 100px;
+  --radius-full: 50%;
+
+  /* ─── SOMBRAS ─── */
+  --shadow-sm:   0 1px 2px rgba(59, 66, 38, 0.08);
+  --shadow-md:   0 2px 8px rgba(59, 66, 38, 0.12);
+  --shadow-lg:   0 4px 16px rgba(59, 66, 38, 0.16);
+  --shadow-xl:   0 8px 24px rgba(59, 66, 38, 0.20);
+
+  /* ─── Z-INDEX ─── */
+  --z-base:      0;
+  --z-dropdown:  100;
+  --z-sticky:    500;
+  --z-fixed:     1000;
+  --z-modal:     2000;
+  --z-tooltip:   3000;
+
+  /* ─── TRANSIÇÕES ─── */
+  --duration-fast:   150ms;
+  --duration-normal: 350ms;
+  --duration-slow:   500ms;
+  --easing:          cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* ─── LAYOUT ─── */
+  --sidebar-width:   232px;
+  --topbar-height:   52px;
+  --container-max:   1400px;
+}
+
+/* ─── IMPORT DE FONTES ─── */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ─── RESET GLOBAL ─── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--creme);
+  color: var(--oliva);
+  font-family: var(--body);
+  font-size: var(--s1-size);
+  line-height: var(--s1-lh);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ─── TIPOGRAFIA SEMÂNTICA ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--s5-size); }
+h2 { font-size: var(--s4-size); }
+h3 { font-size: var(--s3-size); }
+h4 { font-size: var(--s2-size); }
+h5 { font-size: var(--s1-size); }
+h6 { font-size: var(--s0-size); }
+
+/* Labels e texto pequeno */
+.label, .rotulo {
+  font-family: var(--mono);
+  font-size: var(--s0-size);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+  font-weight: 500;
+}
+
+/* Utilities */
+.text-primary { color: var(--oliva); }
+.text-secondary { color: var(--texto-2); }
+.text-disabled { color: var(--nevoa); }
+.text-critical { color: var(--verde); }
+.text-success { color: var(--salvia); }
+
+.bg-primary { background: var(--creme); }
+.bg-secondary { background: var(--creme-tint); }
+
+.border-default { border-color: var(--fio); }
