@@ -307,6 +307,20 @@
   gap: var(--s1);
 }
 
+.project-link {
+  color: var(--oliva);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--easing);
+  border-bottom: 1px solid transparent;
+}
+
+.project-link:hover {
+  color: var(--salvia);
+  border-bottom-color: var(--salvia);
+}
+
 /* ═══════════════════════════════════════════════════════════ */
 /* ASSIGNEE CELL */
 /* ═══════════════════════════════════════════════════════════ */

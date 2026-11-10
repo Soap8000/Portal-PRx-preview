@@ -1,0 +1,390 @@
+/* Portal PRX — Visualização em Rede de Projetos (S-005 Detalhe)
+   Grafo de dependências com nós e setas
+   Paleta: Oliva, Sálvia, Verde, Nevoa
+*/
+
+/* ═══════════════════════════════════════════════════════════ */
+/* NETWORK CONTAINER */
+/* ═══════════════════════════════════════════════════════════ */
+
+.network-container {
+  background: var(--creme);
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  padding: var(--s5);
+  margin-bottom: var(--s5);
+}
+
+.network-header {
+  margin-bottom: var(--s4);
+  padding-bottom: var(--s3);
+  border-bottom: 1px solid var(--fio);
+}
+
+.network-header h2 {
+  font-family: var(--display);
+  font-size: var(--s3-size);
+  font-weight: 600;
+  color: var(--oliva);
+  margin: 0 0 var(--s1) 0;
+}
+
+.network-info {
+  font-size: var(--s0-size);
+  color: var(--texto-2);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* SVG CANVAS */
+/* ═══════════════════════════════════════════════════════════ */
+
+.network-canvas {
+  background: var(--creme-tint);
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  padding: var(--s4);
+  margin-bottom: var(--s4);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.network-svg {
+  width: 100%;
+  height: auto;
+  min-height: 320px;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* NETWORK NODES */
+/* ═══════════════════════════════════════════════════════════ */
+
+.network-node {
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--easing);
+}
+
+.network-node:hover .node-bg {
+  filter: brightness(0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Node Backgrounds */
+.node-bg {
+  stroke: var(--fio);
+  stroke-width: 2;
+  transition: all var(--duration-fast) var(--easing);
+}
+
+/* Status: Completed (Verde) */
+.node-completed .node-bg {
+  fill: var(--verde);
+  opacity: 0.1;
+}
+
+.node-completed .status-indicator {
+  fill: var(--verde);
+}
+
+.node-completed .node-status {
+  fill: var(--verde);
+  font-weight: 700;
+}
+
+/* Status: Running (Sálvia) */
+.node-running .node-bg {
+  fill: var(--salvia);
+  opacity: 0.1;
+}
+
+.node-running .status-indicator {
+  fill: var(--salvia);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.node-running .node-status {
+  fill: var(--salvia);
+  font-weight: 700;
+}
+
+/* Status: Blocked (Vermelho) */
+.node-blocked .node-bg {
+  fill: #D84444;
+  opacity: 0.1;
+}
+
+.node-blocked .status-indicator {
+  fill: #D84444;
+}
+
+.node-blocked .node-status {
+  fill: #D84444;
+  font-weight: 700;
+}
+
+/* Status: Pending (Amarelo) */
+.node-pending .node-bg {
+  fill: var(--nevoa);
+  opacity: 0.15;
+}
+
+.node-pending .status-indicator {
+  fill: var(--nevoa);
+}
+
+.node-pending .node-status {
+  fill: var(--texto-2);
+  font-weight: 700;
+}
+
+/* Node Text */
+.node-title {
+  font-family: var(--body);
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--oliva);
+}
+
+.node-duration {
+  font-family: var(--mono);
+  font-size: 13px;
+  fill: var(--texto-2);
+  font-weight: 600;
+}
+
+.node-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--texto-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.node-value {
+  font-family: var(--body);
+  font-size: 12px;
+  fill: var(--oliva);
+  font-weight: 600;
+}
+
+.node-status {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Pulse animation for running nodes */
+@keyframes pulse {
+  0%, 100% {
+    r: 12px;
+    opacity: 1;
+  }
+  50% {
+    r: 14px;
+    opacity: 0.7;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* CONNECTIONS & ARROWS */
+/* ═══════════════════════════════════════════════════════════ */
+
+line {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* LEGEND */
+/* ═══════════════════════════════════════════════════════════ */
+
+.network-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  padding: var(--s3);
+  background: var(--creme-tint);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--s4);
+  border: 1px solid var(--fio);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: var(--s0-size);
+  color: var(--texto-2);
+}
+
+.legend-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  border: 1px solid var(--fio);
+}
+
+.legend-completed {
+  background: var(--verde);
+  opacity: 0.2;
+}
+
+.legend-running {
+  background: var(--salvia);
+  opacity: 0.2;
+}
+
+.legend-blocked {
+  background: #D84444;
+  opacity: 0.2;
+}
+
+.legend-pending {
+  background: var(--nevoa);
+  opacity: 0.2;
+}
+
+.legend-connection {
+  width: 24px;
+  height: 3px;
+  background: var(--salvia);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-weight: 600;
+  color: var(--oliva);
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* NODE DETAILS PANEL */
+/* ═══════════════════════════════════════════════════════════ */
+
+.node-details {
+  background: var(--creme-tint);
+  border: 1px solid var(--fio);
+  border-radius: var(--radius-md);
+  padding: var(--s4);
+}
+
+.node-details h3 {
+  font-family: var(--display);
+  font-size: var(--s2-size);
+  font-weight: 600;
+  color: var(--oliva);
+  margin: 0 0 var(--s3) 0;
+  border-bottom: 1px solid var(--fio);
+  padding-bottom: var(--s2);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s3);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.detail-label {
+  font-size: var(--s0-size);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--texto-2);
+  font-family: var(--mono);
+}
+
+.detail-value {
+  font-size: var(--s0-size);
+  color: var(--oliva);
+  font-weight: 600;
+}
+
+.detail-value a {
+  color: var(--salvia);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.detail-value a:hover {
+  text-decoration: underline;
+}
+
+/* ═══════════════════════════════════════════════════════════ */
+/* RESPONSIVE */
+/* ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .network-container {
+    padding: var(--s4);
+  }
+
+  .network-canvas {
+    padding: var(--s3);
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .network-container {
+    padding: var(--s3);
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s2);
+  }
+
+  .client-info {
+    margin-left: 0;
+  }
+
+  .header-top h1 {
+    font-size: var(--s3-size);
+  }
+
+  .project-tabs {
+    gap: var(--s2);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .network-canvas {
+    min-height: 280px;
+  }
+
+  .network-legend {
+    flex-direction: column;
+    gap: var(--s2);
+  }
+
+  .legend-item {
+    width: 100%;
+  }
+
+  .node-title {
+    font-size: 14px;
+  }
+
+  .node-duration {
+    font-size: 12px;
+  }
+
+  .node-label {
+    font-size: 10px;
+  }
+
+  .node-value {
+    font-size: 11px;
+  }
+}
