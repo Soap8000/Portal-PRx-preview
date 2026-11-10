@@ -1,0 +1,61 @@
+# Portal PRX — Clone Estático (Preview Visual)
+
+## Status Atual
+✅ **ESTE É O PROJETO ATIVO** — Ignore FastAPI/Portal PRX antigo
+
+## Contexto para Próximas Sessões
+
+### O que é
+- HTML + CSS estático, sem JavaScript customizado
+- Design system completo com 6 páginas (Negociações, Contas, Contatos, Projetos, Atividades, Painel)
+- Rodando em GitHub Pages: https://soap8000.github.io/Portal-PRx-preview/
+- Repo: https://github.com/Soap8000/Portal-PRx-preview
+
+### Paleta de Cores
+- Oliva (#3B4226)
+- Creme (#F2EEE8)
+- Sálvia (#4A7C59)
+- Verde (#6DB875)
+- Névoa (#D4D4CE)
+
+### Tipografia
+- Display: Fraunces
+- Body: Inter Tight
+- Mono: IBM Plex Mono
+
+### Spacing Scale
+- s0: 2px
+- s1: 4px
+- s2: 8px
+- s3: 16px
+- s4: 24px
+- s5: 32px
+- s6: 48px
+
+### Responsividade
+5 breakpoints:
+- 320px (mobile pequeno)
+- 640px (mobile médio)
+- 768px (tablet)
+- 900px (desktop pequeno)
+- 1200px (desktop grande)
+
+## Última Ação Realizada
+- Adicionada visualização de rede de dependências (projeto-rede.css)
+- Links clicáveis em projetos abrindo detalhe com rede SVG
+- 2 commits: inicial + rede
+
+## Próximos Passos (quando confirmado)
+1. [ ] Validar design com sócios
+2. [ ] Ajustes visuais (cores, spacing, tipografia)
+3. [ ] Integrar no FastAPI (só depois de 100% validado)
+4. [ ] Conectar dados reais do banco
+
+## ⚠️ NÃO FAZER
+- ❌ Trabalhar em `/portal-prx/` (FastAPI antigo)
+- ❌ Adicionar JavaScript customizado
+- ❌ Mudar tipografia ou cores da paleta PRX
+- ❌ Integrar backend antes da validação visual
+
+---
+*Última update: 2026-11-10*
